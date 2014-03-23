@@ -7,4 +7,4 @@
 ; Routines
 (include "sdl2/sdl.scm")
 (include "sdl2/image.scm")
-(include "sdl2/renderer.scm")
+(include "sdl2/render.scm")

@@ -14,3 +14,7 @@
 (define sdl::flip-none #x00000000)
 (define sdl::flip-horizontal #x00000001)
 (define sdl::flip-vertical #x00000002)
+
+(define sdl::get-num-render-drivers
+    (c-lambda () int
+        "SDL_GetNumRenderDrivers"))
