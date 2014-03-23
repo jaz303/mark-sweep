@@ -1,0 +1,1 @@
+(c-define-type Uint32 unsigned-int32)
