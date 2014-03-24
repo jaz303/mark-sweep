@@ -4,8 +4,8 @@
 
 (c-define-type
 	sdl::window-ptr
-	(pointer (type "SDL_Window")))
+	(pointer "SDL_Window"))
 
 (c-define-type
 	sdl::renderer-ptr
-	(pointer (type "SDL_Renderer")))
+	(pointer "SDL_Renderer"))
