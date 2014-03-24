@@ -18,3 +18,7 @@
 (define sdl::get-num-render-drivers
     (c-lambda () int
         "SDL_GetNumRenderDrivers"))
+
+(define sdl::create-renderer
+	(c-lambda (sdl::window-ptr int Uint32) sdl::renderer-ptr
+		"SDL_CreateRenderer"))
