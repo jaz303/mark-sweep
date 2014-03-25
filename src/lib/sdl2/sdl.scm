@@ -14,23 +14,3 @@
                                         sdl::init-haptic
                                         sdl::init-gamecontroller
                                         sdl::init-events))
-
-(define sdl::init
-    (c-lambda (Uint32) int
-        "SDL_Init"))
-
-(define sdl::init-sub-system
-    (c-lambda (Uint32) int
-        "SDL_InitSubSystem"))
-
-(define sdl::quit-sub-system
-    (c-lambda (Uint32) void
-        "SDL_QuitSubSystem"))
-
-(define sdl::was-init
-    (c-lambda (Uint32) Uint32
-        "SDL_WasInit"))
-
-(define sdl::quit
-    (c-lambda () void
-        "SDL_Quit"))

@@ -10,3 +10,6 @@
 (include "sdl2/render.scm")
 (include "sdl2/timer.scm")
 ;(include "sdl2/image.scm")
+
+; Functions
+(include "sdl2/functions.scm")
