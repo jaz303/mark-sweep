@@ -65,17 +65,33 @@
     (c-lambda (int) void
         "SDL_PauseAudio"))
 
+(define sdl::pause-audio-device
+    (c-lambda (SDL_AudioDeviceID int) void
+        "SDL_PauseAudioDevice"))
+
 (define sdl::lock-audio
     (c-lambda () void
         "SDL_LockAudio"))
+
+(define sdl::lock-audio-device
+    (c-lambda (SDL_AudioDeviceID) void
+        "SDL_LockAudioDevice"))
 
 (define sdl::unlock-audio
     (c-lambda () void
         "SDL_UnlockAudio"))
 
+(define sdl::unlock-audio-device
+    (c-lambda (SDL_AudioDeviceID) void
+        "SDL_UnlockAudioDevice"))
+
 (define sdl::close-audio
     (c-lambda () void
         "SDL_CloseAudio"))
+
+(define sdl::close-audio-device
+    (c-lambda (SDL_AudioDeviceID) void
+        "SDL_CloseAudioDevice"))
 
 (define sdl::set-clipboard-text
     (c-lambda (char-string) int
@@ -145,6 +161,10 @@
     (c-lambda () void
         "SDL_ClearError"))
 
+(define sdl::error
+    (c-lambda (int) int
+        "SDL_Error"))
+
 (define sdl::pump-events
     (c-lambda () void
         "SDL_PumpEvents"))
@@ -201,9 +221,29 @@
     (c-lambda () void
         "SDL_GameControllerUpdate"))
 
+(define sdl::game-controller-get-axis-from-string
+    (c-lambda (char-string) int
+        "SDL_GameControllerGetAxisFromString"))
+
+(define sdl::game-controller-get-string-for-axis
+    (c-lambda (int) char-string
+        "SDL_GameControllerGetStringForAxis"))
+
+(define sdl::record-gesture
+    (c-lambda (SDL_TouchID) int
+        "SDL_RecordGesture"))
+
 (define sdl::save-all-dollar-templates
     (c-lambda (sdl::rw-ops-ptr) int
         "SDL_SaveAllDollarTemplates"))
+
+(define sdl::save-dollar-template
+    (c-lambda (SDL_GestureID sdl::rw-ops-ptr) int
+        "SDL_SaveDollarTemplate"))
+
+(define sdl::load-dollar-templates
+    (c-lambda (SDL_TouchID sdl::rw-ops-ptr) int
+        "SDL_LoadDollarTemplates"))
 
 (define sdl::num-haptics
     (c-lambda () int
@@ -213,13 +253,101 @@
     (c-lambda (int) char-string
         "SDL_HapticName"))
 
+(define sdl::haptic-open
+    (c-lambda (int) sdl::haptic-ptr
+        "SDL_HapticOpen"))
+
 (define sdl::haptic-opened
     (c-lambda (int) int
         "SDL_HapticOpened"))
 
+(define sdl::haptic-index
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticIndex"))
+
 (define sdl::mouse-is-haptic
     (c-lambda () int
         "SDL_MouseIsHaptic"))
+
+(define sdl::haptic-open-from-mouse
+    (c-lambda () sdl::haptic-ptr
+        "SDL_HapticOpenFromMouse"))
+
+(define sdl::haptic-close
+    (c-lambda (sdl::haptic-ptr) void
+        "SDL_HapticClose"))
+
+(define sdl::haptic-num-effects
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticNumEffects"))
+
+(define sdl::haptic-num-effects-playing
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticNumEffectsPlaying"))
+
+(define sdl::haptic-query
+    (c-lambda (sdl::haptic-ptr) unsigned-int
+        "SDL_HapticQuery"))
+
+(define sdl::haptic-num-axes
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticNumAxes"))
+
+(define sdl::haptic-run-effect
+    (c-lambda (sdl::haptic-ptr int Uint32) int
+        "SDL_HapticRunEffect"))
+
+(define sdl::haptic-stop-effect
+    (c-lambda (sdl::haptic-ptr int) int
+        "SDL_HapticStopEffect"))
+
+(define sdl::haptic-destroy-effect
+    (c-lambda (sdl::haptic-ptr int) void
+        "SDL_HapticDestroyEffect"))
+
+(define sdl::haptic-get-effect-status
+    (c-lambda (sdl::haptic-ptr int) int
+        "SDL_HapticGetEffectStatus"))
+
+(define sdl::haptic-set-gain
+    (c-lambda (sdl::haptic-ptr int) int
+        "SDL_HapticSetGain"))
+
+(define sdl::haptic-set-autocenter
+    (c-lambda (sdl::haptic-ptr int) int
+        "SDL_HapticSetAutocenter"))
+
+(define sdl::haptic-pause
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticPause"))
+
+(define sdl::haptic-unpause
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticUnpause"))
+
+(define sdl::haptic-stop-all
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticStopAll"))
+
+(define sdl::haptic-rumble-supported
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticRumbleSupported"))
+
+(define sdl::haptic-rumble-init
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticRumbleInit"))
+
+(define sdl::haptic-rumble-play
+    (c-lambda (sdl::haptic-ptr float Uint32) int
+        "SDL_HapticRumblePlay"))
+
+(define sdl::haptic-rumble-stop
+    (c-lambda (sdl::haptic-ptr) int
+        "SDL_HapticRumbleStop"))
+
+(define sdl::set-hint-with-priority
+    (c-lambda (char-string char-string int) SDL_bool
+        "SDL_SetHintWithPriority"))
 
 (define sdl::set-hint
     (c-lambda (char-string char-string) SDL_bool
@@ -409,6 +537,38 @@
     (c-lambda () sdl::window-ptr
         "SDL_GetKeyboardFocus"))
 
+(define sdl::get-mod-state
+    (c-lambda () int
+        "SDL_GetModState"))
+
+(define sdl::set-mod-state
+    (c-lambda (int) void
+        "SDL_SetModState"))
+
+(define sdl::get-key-from-scancode
+    (c-lambda (int) SDL_Keycode
+        "SDL_GetKeyFromScancode"))
+
+(define sdl::get-scancode-from-key
+    (c-lambda (SDL_Keycode) int
+        "SDL_GetScancodeFromKey"))
+
+(define sdl::get-scancode-name
+    (c-lambda (int) char-string
+        "SDL_GetScancodeName"))
+
+(define sdl::get-scancode-from-name
+    (c-lambda (char-string) int
+        "SDL_GetScancodeFromName"))
+
+(define sdl::get-key-name
+    (c-lambda (SDL_Keycode) char-string
+        "SDL_GetKeyName"))
+
+(define sdl::get-key-from-name
+    (c-lambda (char-string) SDL_Keycode
+        "SDL_GetKeyFromName"))
+
 (define sdl::start-text-input
     (c-lambda () void
         "SDL_StartTextInput"))
@@ -476,6 +636,10 @@
 (define sdl::mix-set-panning
     (c-lambda (int Uint8 Uint8) int
         "Mix_SetPanning"))
+
+(define sdl::mix-set-position
+    (c-lambda (int Sint16 Uint8) int
+        "Mix_SetPosition"))
 
 (define sdl::mix-set-distance
     (c-lambda (int Uint8) int
@@ -548,6 +712,14 @@
 (define sdl::mix-fade-out-music
     (c-lambda (int) int
         "Mix_FadeOutMusic"))
+
+(define sdl::mix-fading-music
+    (c-lambda () int
+        "Mix_FadingMusic"))
+
+(define sdl::mix-fading-channel
+    (c-lambda (int) int
+        "Mix_FadingChannel"))
 
 (define sdl::mix-pause
     (c-lambda (int) void
@@ -633,6 +805,10 @@
     (c-lambda (sdl::surface-ptr int int) sdl::cursor-ptr
         "SDL_CreateColorCursor"))
 
+(define sdl::create-system-cursor
+    (c-lambda (int) sdl::cursor-ptr
+        "SDL_CreateSystemCursor"))
+
 (define sdl::set-cursor
     (c-lambda (sdl::cursor-ptr) void
         "SDL_SetCursor"))
@@ -717,6 +893,10 @@
     (c-lambda (sdl::texture-ptr Uint8) int
         "SDL_SetTextureAlphaMod"))
 
+(define sdl::set-texture-blend-mode
+    (c-lambda (sdl::texture-ptr int) int
+        "SDL_SetTextureBlendMode"))
+
 (define sdl::unlock-texture
     (c-lambda (sdl::texture-ptr) void
         "SDL_UnlockTexture"))
@@ -740,6 +920,10 @@
 (define sdl::render-set-scale
     (c-lambda (sdl::renderer-ptr float float) int
         "SDL_RenderSetScale"))
+
+(define sdl::set-render-draw-blend-mode
+    (c-lambda (sdl::renderer-ptr int) int
+        "SDL_SetRenderDrawBlendMode"))
 
 (define sdl::render-clear
     (c-lambda (sdl::renderer-ptr) int
@@ -929,6 +1113,14 @@
     (c-lambda (long char-string int) char-string
         "SDL_ltoa"))
 
+(define sdl::ultoa
+    (c-lambda (unsigned-long char-string int) char-string
+        "SDL_ultoa"))
+
+(define sdl::lltoa
+    (c-lambda (Sint64 char-string int) char-string
+        "SDL_lltoa"))
+
 (define sdl::ulltoa
     (c-lambda (Uint64 char-string int) char-string
         "SDL_ulltoa"))
@@ -1057,6 +1249,10 @@
     (c-lambda (sdl::surface-ptr Uint8) int
         "SDL_SetSurfaceAlphaMod"))
 
+(define sdl::set-surface-blend-mode
+    (c-lambda (sdl::surface-ptr int) int
+        "SDL_SetSurfaceBlendMode"))
+
 (define sdl::convert-surface-format
     (c-lambda (sdl::surface-ptr Uint32 Uint32) sdl::surface-ptr
         "SDL_ConvertSurfaceFormat"))
@@ -1064,6 +1260,22 @@
 (define sdl::get-thread-name
     (c-lambda (sdl::thread-ptr) char-string
         "SDL_GetThreadName"))
+
+(define sdl::thread-id
+    (c-lambda () SDL_threadID
+        "SDL_ThreadID"))
+
+(define sdl::get-thread-id
+    (c-lambda (sdl::thread-ptr) SDL_threadID
+        "SDL_GetThreadID"))
+
+(define sdl::set-thread-priority
+    (c-lambda (int) int
+        "SDL_SetThreadPriority"))
+
+(define sdl::tlscreate
+    (c-lambda () SDL_TLSID
+        "SDL_TLSCreate"))
 
 (define sdl::get-ticks
     (c-lambda () Uint32
@@ -1081,9 +1293,21 @@
     (c-lambda (Uint32) void
         "SDL_Delay"))
 
+(define sdl::remove-timer
+    (c-lambda (SDL_TimerID) SDL_bool
+        "SDL_RemoveTimer"))
+
 (define sdl::get-num-touch-devices
     (c-lambda () int
         "SDL_GetNumTouchDevices"))
+
+(define sdl::get-touch-device
+    (c-lambda (int) SDL_TouchID
+        "SDL_GetTouchDevice"))
+
+(define sdl::get-num-touch-fingers
+    (c-lambda (SDL_TouchID) int
+        "SDL_GetNumTouchFingers"))
 
 (define sdl::ttf-byte-swapped-unicode
     (c-lambda (int) void

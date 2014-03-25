@@ -52,13 +52,12 @@ TYPES = {
       :gambit => 'unsigned-int'
     },
 
-    #
-    #
-
-    'SDL_bool' => {
-      :gambit => 'SDL_bool',
-      :declare_as => 'int'
+    'unsigned long' => {
+      :gambit => 'unsigned-long'
     },
+
+    #
+    #
 
     'Uint64' => {
       :gambit => 'Uint64',
@@ -79,6 +78,90 @@ TYPES = {
       :gambit => 'Uint8',
       :declare_as => 'unsigned-int8'
     },
+
+    'Sint64' => {
+      :gambit => 'Sint64',
+      :declare_as => 'int64'
+    },
+
+    'Sint16' => {
+      :gambit => 'Sint16',
+      :declare_as => 'int16'
+    },
+
+    'SDL_bool' => {
+      :gambit => 'SDL_bool',
+      :declare_as => 'int'
+    },
+
+    'SDL_AudioDeviceID' => {
+      :gambit => 'SDL_AudioDeviceID',
+      :declare_as => 'Uint32'
+    },
+
+    'SDL_JoystickID' => {
+      :gambit => 'SDL_JoystickID',
+      :declare_as => 'int32'
+    },
+
+    'SDL_TimerID' => {
+      :gambit => 'SDL_TimerID',
+      :declare_as => 'int'
+    },
+
+    'SDL_TouchID' => {
+      :gambit => 'SDL_TouchID',
+      :declare_as => 'int64'
+    },
+
+    'SDL_FingerID' => {
+      :gambit => 'SDL_FingerID',
+      :declare_as => 'int64'
+    },
+
+    'SDL_GestureID' => {
+      :gambit => 'SDL_GestureID',
+      :declare_as => 'int64'
+    },
+
+    'SDL_threadID' => {
+      :gambit => 'SDL_threadID',
+      :declare_as => 'unsigned-long'
+    },
+
+    'SDL_AudioFormat' => {
+      :gambit => 'SDL_AudioFormat',
+      :declare_as => 'Uint16'
+    },
+
+    'SDL_Keycode' => {
+      :gambit => 'SDL_Keycode',
+      :declare_as => 'int32'
+    },
+
+    'SDL_TLSID' => {
+      :gambit => 'SDL_TLSID',
+      :declare_as => 'unsigned-int'
+    },
+
+    #
+    # Enums
+
+    'SDL_GameControllerAxis' => { :gambit => 'int' },
+    'SDL_Scancode' => { :gambit => 'int' },
+    'SDL_ThreadPriority' => { :gambit => 'int' },
+    'SDL_errorcode' => { :gambit => 'int' },
+    'SDL_RendererFlip' => { :gambit => 'int' },
+    'SDL_TextureModulate' => { :gambit => 'int' },
+    'SDL_TextureAccess' => { :gambit => 'int' },
+    'SDL_BlendMode' => { :gambit => 'int' },
+    'SDL_SystemCursor' => { :gambit => 'int' },
+    'SDL_Keymod' => { :gambit => 'int' },
+    'SDL_PowerState' => { :gambit => 'int' },
+    'Mix_Fading' => { :gambit => 'int' },
+    'Mix_MusicType' => { :gambit => 'int' },
+    'SDL_eventaction' => { :gambit => 'int' },
+    'SDL_HintPriority' => { :gambit => 'int' },
 
     #
     # Pointers
@@ -126,6 +209,11 @@ TYPES = {
     'SDL_RWops*' => {
       :gambit => 'sdl::rw-ops-ptr',
       :declare_as => '(pointer "SDL_RWops")'
+    },
+
+    'SDL_Haptic*' => {
+      :gambit => 'sdl::haptic-ptr',
+      :declare_as => '(pointer "SDL_Haptic")'
     }
     
 
