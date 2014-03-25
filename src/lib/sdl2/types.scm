@@ -50,3 +50,7 @@
     sdl::thread-ptr
     (pointer "SDL_Thread"))
 
+(c-define-type
+    sdl::rw-ops-ptr
+    (pointer "SDL_RWops"))
+

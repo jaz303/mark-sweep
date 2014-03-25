@@ -201,6 +201,10 @@
     (c-lambda () void
         "SDL_GameControllerUpdate"))
 
+(define sdl::save-all-dollar-templates
+    (c-lambda (sdl::rw-ops-ptr) int
+        "SDL_SaveAllDollarTemplates"))
+
 (define sdl::num-haptics
     (c-lambda () int
         "SDL_NumHaptics"))
@@ -237,17 +241,153 @@
     (c-lambda () void
         "IMG_Quit"))
 
+(define sdl::img-load-typed-rw
+    (c-lambda (sdl::rw-ops-ptr int char-string) sdl::surface-ptr
+        "IMG_LoadTyped_RW"))
+
 (define sdl::img-load
     (c-lambda (char-string) sdl::surface-ptr
         "IMG_Load"))
+
+(define sdl::img-load-rw
+    (c-lambda (sdl::rw-ops-ptr int) sdl::surface-ptr
+        "IMG_Load_RW"))
 
 (define sdl::img-load-texture
     (c-lambda (sdl::renderer-ptr char-string) sdl::texture-ptr
         "IMG_LoadTexture"))
 
+(define sdl::img-load-texture-rw
+    (c-lambda (sdl::renderer-ptr sdl::rw-ops-ptr int) sdl::texture-ptr
+        "IMG_LoadTexture_RW"))
+
+(define sdl::img-load-texture-typed-rw
+    (c-lambda (sdl::renderer-ptr sdl::rw-ops-ptr int char-string) sdl::texture-ptr
+        "IMG_LoadTextureTyped_RW"))
+
+(define sdl::img-is-ico
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isICO"))
+
+(define sdl::img-is-cur
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isCUR"))
+
+(define sdl::img-is-bmp
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isBMP"))
+
+(define sdl::img-is-gif
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isGIF"))
+
+(define sdl::img-is-jpg
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isJPG"))
+
+(define sdl::img-is-lbm
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isLBM"))
+
+(define sdl::img-is-pcx
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isPCX"))
+
+(define sdl::img-is-png
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isPNG"))
+
+(define sdl::img-is-pnm
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isPNM"))
+
+(define sdl::img-is-tif
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isTIF"))
+
+(define sdl::img-is-xcf
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isXCF"))
+
+(define sdl::img-is-xpm
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isXPM"))
+
+(define sdl::img-is-xv
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isXV"))
+
+(define sdl::img-is-webp
+    (c-lambda (sdl::rw-ops-ptr) int
+        "IMG_isWEBP"))
+
+(define sdl::img-load-ico-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadICO_RW"))
+
+(define sdl::img-load-cur-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadCUR_RW"))
+
+(define sdl::img-load-bmp-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadBMP_RW"))
+
+(define sdl::img-load-gif-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadGIF_RW"))
+
+(define sdl::img-load-jpg-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadJPG_RW"))
+
+(define sdl::img-load-lbm-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadLBM_RW"))
+
+(define sdl::img-load-pcx-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadPCX_RW"))
+
+(define sdl::img-load-png-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadPNG_RW"))
+
+(define sdl::img-load-pnm-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadPNM_RW"))
+
+(define sdl::img-load-tga-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadTGA_RW"))
+
+(define sdl::img-load-tif-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadTIF_RW"))
+
+(define sdl::img-load-xcf-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadXCF_RW"))
+
+(define sdl::img-load-xpm-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadXPM_RW"))
+
+(define sdl::img-load-xv-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadXV_RW"))
+
+(define sdl::img-load-webp-rw
+    (c-lambda (sdl::rw-ops-ptr) sdl::surface-ptr
+        "IMG_LoadWEBP_RW"))
+
 (define sdl::img-save-png
     (c-lambda (sdl::surface-ptr char-string) int
         "IMG_SavePNG"))
+
+(define sdl::img-save-png-rw
+    (c-lambda (sdl::surface-ptr sdl::rw-ops-ptr int) int
+        "IMG_SavePNG_RW"))
 
 (define sdl::num-joysticks
     (c-lambda () int
@@ -629,6 +769,74 @@
     (c-lambda (sdl::texture-ptr) int
         "SDL_GL_UnbindTexture"))
 
+(define sdl::rwfrom-file
+    (c-lambda (char-string char-string) sdl::rw-ops-ptr
+        "SDL_RWFromFile"))
+
+(define sdl::alloc-rw
+    (c-lambda () sdl::rw-ops-ptr
+        "SDL_AllocRW"))
+
+(define sdl::free-rw
+    (c-lambda (sdl::rw-ops-ptr) void
+        "SDL_FreeRW"))
+
+(define sdl::read-u8
+    (c-lambda (sdl::rw-ops-ptr) Uint8
+        "SDL_ReadU8"))
+
+(define sdl::read-le16
+    (c-lambda (sdl::rw-ops-ptr) Uint16
+        "SDL_ReadLE16"))
+
+(define sdl::read-be16
+    (c-lambda (sdl::rw-ops-ptr) Uint16
+        "SDL_ReadBE16"))
+
+(define sdl::read-le32
+    (c-lambda (sdl::rw-ops-ptr) Uint32
+        "SDL_ReadLE32"))
+
+(define sdl::read-be32
+    (c-lambda (sdl::rw-ops-ptr) Uint32
+        "SDL_ReadBE32"))
+
+(define sdl::read-le64
+    (c-lambda (sdl::rw-ops-ptr) Uint64
+        "SDL_ReadLE64"))
+
+(define sdl::read-be64
+    (c-lambda (sdl::rw-ops-ptr) Uint64
+        "SDL_ReadBE64"))
+
+(define sdl::write-u8
+    (c-lambda (sdl::rw-ops-ptr Uint8) size_t
+        "SDL_WriteU8"))
+
+(define sdl::write-le16
+    (c-lambda (sdl::rw-ops-ptr Uint16) size_t
+        "SDL_WriteLE16"))
+
+(define sdl::write-be16
+    (c-lambda (sdl::rw-ops-ptr Uint16) size_t
+        "SDL_WriteBE16"))
+
+(define sdl::write-le32
+    (c-lambda (sdl::rw-ops-ptr Uint32) size_t
+        "SDL_WriteLE32"))
+
+(define sdl::write-be32
+    (c-lambda (sdl::rw-ops-ptr Uint32) size_t
+        "SDL_WriteBE32"))
+
+(define sdl::write-le64
+    (c-lambda (sdl::rw-ops-ptr Uint64) size_t
+        "SDL_WriteLE64"))
+
+(define sdl::write-be64
+    (c-lambda (sdl::rw-ops-ptr Uint64) size_t
+        "SDL_WriteBE64"))
+
 (define sdl::create-shaped-window
     (c-lambda (char-string unsigned-int unsigned-int unsigned-int unsigned-int Uint32) sdl::window-ptr
         "SDL_CreateShapedWindow"))
@@ -825,6 +1033,14 @@
     (c-lambda (sdl::surface-ptr) void
         "SDL_UnlockSurface"))
 
+(define sdl::load-bmp-rw
+    (c-lambda (sdl::rw-ops-ptr int) sdl::surface-ptr
+        "SDL_LoadBMP_RW"))
+
+(define sdl::save-bmp-rw
+    (c-lambda (sdl::surface-ptr sdl::rw-ops-ptr int) int
+        "SDL_SaveBMP_RW"))
+
 (define sdl::set-surface-rle
     (c-lambda (sdl::surface-ptr int) int
         "SDL_SetSurfaceRLE"))
@@ -884,6 +1100,14 @@
 (define sdl::ttf-open-font-index
     (c-lambda (char-string int long) sdl::ttf-font-ptr
         "TTF_OpenFontIndex"))
+
+(define sdl::ttf-open-font-rw
+    (c-lambda (sdl::rw-ops-ptr int int) sdl::ttf-font-ptr
+        "TTF_OpenFontRW"))
+
+(define sdl::ttf-open-font-index-rw
+    (c-lambda (sdl::rw-ops-ptr int int long) sdl::ttf-font-ptr
+        "TTF_OpenFontIndexRW"))
 
 (define sdl::ttf-get-font-style
     (c-lambda (sdl::ttf-font-ptr) int

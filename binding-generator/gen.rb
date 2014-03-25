@@ -123,6 +123,12 @@ TYPES = {
       :declare_as => '(pointer "SDL_Thread")'
     },
 
+    'SDL_RWops*' => {
+      :gambit => 'sdl::rw-ops-ptr',
+      :declare_as => '(pointer "SDL_RWops")'
+    }
+    
+
     #
     # Unsupported
 }
