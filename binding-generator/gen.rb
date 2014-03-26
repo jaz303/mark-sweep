@@ -214,6 +214,11 @@ TYPES = {
     'SDL_Haptic*' => {
       :gambit => 'sdl::haptic-ptr',
       :declare_as => '(pointer "SDL_Haptic")'
+    },
+
+    'SDL_Joystick*' => {
+      :gambit => 'sdl::joystick-ptr',
+      :declare_as => '(pointer "SDL_Joystick")'
     }
     
 

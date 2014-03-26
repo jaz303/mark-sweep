@@ -106,3 +106,7 @@
     sdl::haptic-ptr
     (pointer "SDL_Haptic"))
 
+(c-define-type
+    sdl::joystick-ptr
+    (pointer "SDL_Joystick"))
+

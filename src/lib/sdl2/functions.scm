@@ -273,6 +273,14 @@
     (c-lambda () sdl::haptic-ptr
         "SDL_HapticOpenFromMouse"))
 
+(define sdl::joystick-is-haptic
+    (c-lambda (sdl::joystick-ptr) int
+        "SDL_JoystickIsHaptic"))
+
+(define sdl::haptic-open-from-joystick
+    (c-lambda (sdl::joystick-ptr) sdl::haptic-ptr
+        "SDL_HapticOpenFromJoystick"))
+
 (define sdl::haptic-close
     (c-lambda (sdl::haptic-ptr) void
         "SDL_HapticClose"))
@@ -525,6 +533,38 @@
     (c-lambda (int) char-string
         "SDL_JoystickNameForIndex"))
 
+(define sdl::joystick-open
+    (c-lambda (int) sdl::joystick-ptr
+        "SDL_JoystickOpen"))
+
+(define sdl::joystick-name
+    (c-lambda (sdl::joystick-ptr) char-string
+        "SDL_JoystickName"))
+
+(define sdl::joystick-get-attached
+    (c-lambda (sdl::joystick-ptr) SDL_bool
+        "SDL_JoystickGetAttached"))
+
+(define sdl::joystick-instance-id
+    (c-lambda (sdl::joystick-ptr) SDL_JoystickID
+        "SDL_JoystickInstanceID"))
+
+(define sdl::joystick-num-axes
+    (c-lambda (sdl::joystick-ptr) int
+        "SDL_JoystickNumAxes"))
+
+(define sdl::joystick-num-balls
+    (c-lambda (sdl::joystick-ptr) int
+        "SDL_JoystickNumBalls"))
+
+(define sdl::joystick-num-hats
+    (c-lambda (sdl::joystick-ptr) int
+        "SDL_JoystickNumHats"))
+
+(define sdl::joystick-num-buttons
+    (c-lambda (sdl::joystick-ptr) int
+        "SDL_JoystickNumButtons"))
+
 (define sdl::joystick-update
     (c-lambda () void
         "SDL_JoystickUpdate"))
@@ -532,6 +572,22 @@
 (define sdl::joystick-event-state
     (c-lambda (int) int
         "SDL_JoystickEventState"))
+
+(define sdl::joystick-get-axis
+    (c-lambda (sdl::joystick-ptr int) Sint16
+        "SDL_JoystickGetAxis"))
+
+(define sdl::joystick-get-hat
+    (c-lambda (sdl::joystick-ptr int) Uint8
+        "SDL_JoystickGetHat"))
+
+(define sdl::joystick-get-button
+    (c-lambda (sdl::joystick-ptr int) Uint8
+        "SDL_JoystickGetButton"))
+
+(define sdl::joystick-close
+    (c-lambda (sdl::joystick-ptr) void
+        "SDL_JoystickClose"))
 
 (define sdl::get-keyboard-focus
     (c-lambda () sdl::window-ptr
