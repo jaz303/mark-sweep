@@ -61,6 +61,14 @@
     (c-lambda (int int) char-string
         "SDL_GetAudioDeviceName"))
 
+(define sdl::get-audio-status
+    (c-lambda () int
+        "SDL_GetAudioStatus"))
+
+(define sdl::get-audio-device-status
+    (c-lambda (SDL_AudioDeviceID) int
+        "SDL_GetAudioDeviceStatus"))
+
 (define sdl::pause-audio
     (c-lambda (int) void
         "SDL_PauseAudio"))

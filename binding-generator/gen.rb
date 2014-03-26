@@ -175,6 +175,7 @@ TYPES = {
     'Mix_MusicType' => { :gambit => 'int' },
     'SDL_eventaction' => { :gambit => 'int' },
     'SDL_HintPriority' => { :gambit => 'int' },
+    'SDL_AudioStatus' => { :gambit => 'int' },
 
     #
     # Pointers
