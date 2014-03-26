@@ -11,7 +11,18 @@ IGNORED_FUNCTIONS = [
   'SDL_AndroidGetExternalStorageState',
   'SDL_AndroidGetExternalStoragePath',
   'SDL_Direct3D9GetAdapterIndex',
-  'SDL_iPhoneSetEventPump'
+  'SDL_iPhoneSetEventPump',
+  'SDL_malloc',
+  'SDL_calloc',
+  'SDL_realloc',
+  'SDL_free',
+  'SDL_memset',
+  'SDL_memcpy',
+  'SDL_memmove',
+  'SDL_memcmp',
+  'SDL_sscanf',
+  'SDL_snprintf',
+  'SDL_vsnprintf'
 ]
 
 TYPES = {
@@ -148,6 +159,8 @@ TYPES = {
     # Enums
 
     'SDL_GameControllerAxis' => { :gambit => 'int' },
+    'SDL_GameControllerBindType' => { :gambit => 'int' },
+    'SDL_GameControllerButton' => { :gambit => 'int' },
     'SDL_Scancode' => { :gambit => 'int' },
     'SDL_ThreadPriority' => { :gambit => 'int' },
     'SDL_errorcode' => { :gambit => 'int' },
@@ -219,7 +232,12 @@ TYPES = {
     'SDL_Joystick*' => {
       :gambit => 'sdl::joystick-ptr',
       :declare_as => '(pointer "SDL_Joystick")'
-    }
+    },
+
+    'SDL_GameController*' => {
+      :gambit => 'sdl::game-controller-ptr',
+      :declare_as => '(pointer "SDL_GameController")'
+    },    
     
 
     #

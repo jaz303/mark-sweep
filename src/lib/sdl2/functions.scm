@@ -205,6 +205,10 @@
     (c-lambda (char-string) int
         "SDL_GameControllerAddMapping"))
 
+(define sdl::game-controller-mapping
+    (c-lambda (sdl::game-controller-ptr) char-string
+        "SDL_GameControllerMapping"))
+
 (define sdl::is-game-controller
     (c-lambda (int) SDL_bool
         "SDL_IsGameController"))
@@ -212,6 +216,22 @@
 (define sdl::game-controller-name-for-index
     (c-lambda (int) char-string
         "SDL_GameControllerNameForIndex"))
+
+(define sdl::game-controller-open
+    (c-lambda (int) sdl::game-controller-ptr
+        "SDL_GameControllerOpen"))
+
+(define sdl::game-controller-name
+    (c-lambda (sdl::game-controller-ptr) char-string
+        "SDL_GameControllerName"))
+
+(define sdl::game-controller-get-attached
+    (c-lambda (sdl::game-controller-ptr) SDL_bool
+        "SDL_GameControllerGetAttached"))
+
+(define sdl::game-controller-get-joystick
+    (c-lambda (sdl::game-controller-ptr) sdl::joystick-ptr
+        "SDL_GameControllerGetJoystick"))
 
 (define sdl::game-controller-event-state
     (c-lambda (int) int
@@ -228,6 +248,26 @@
 (define sdl::game-controller-get-string-for-axis
     (c-lambda (int) char-string
         "SDL_GameControllerGetStringForAxis"))
+
+(define sdl::game-controller-get-axis
+    (c-lambda (sdl::game-controller-ptr int) Sint16
+        "SDL_GameControllerGetAxis"))
+
+(define sdl::game-controller-get-button-from-string
+    (c-lambda (char-string) int
+        "SDL_GameControllerGetButtonFromString"))
+
+(define sdl::game-controller-get-string-for-button
+    (c-lambda (int) char-string
+        "SDL_GameControllerGetStringForButton"))
+
+(define sdl::game-controller-get-button
+    (c-lambda (sdl::game-controller-ptr int) Uint8
+        "SDL_GameControllerGetButton"))
+
+(define sdl::game-controller-close
+    (c-lambda (sdl::game-controller-ptr) void
+        "SDL_GameControllerClose"))
 
 (define sdl::record-gesture
     (c-lambda (SDL_TouchID) int

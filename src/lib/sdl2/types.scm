@@ -110,3 +110,7 @@
     sdl::joystick-ptr
     (pointer "SDL_Joystick"))
 
+(c-define-type
+    sdl::game-controller-ptr
+    (pointer "SDL_GameController"))
+
