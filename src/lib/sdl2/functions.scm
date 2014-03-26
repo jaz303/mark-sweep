@@ -105,11 +105,11 @@
     (c-lambda () SDL_bool
         "SDL_HasClipboardText"))
 
-(define sdl::get-cpucount
+(define sdl::get-cpu-count
     (c-lambda () int
         "SDL_GetCPUCount"))
 
-(define sdl::get-cpucache-line-size
+(define sdl::get-cpu-cache-line-size
     (c-lambda () int
         "SDL_GetCPUCacheLineSize"))
 
@@ -829,15 +829,15 @@
     (c-lambda (int) int
         "SDL_ShowCursor"))
 
-(define sdl::sdlnet-init
+(define sdl::net-init
     (c-lambda () int
         "SDLNet_Init"))
 
-(define sdl::sdlnet-quit
+(define sdl::net-quit
     (c-lambda () void
         "SDLNet_Quit"))
 
-(define sdl::sdlnet-get-error
+(define sdl::net-get-error
     (c-lambda () char-string
         "SDLNet_GetError"))
 
@@ -953,7 +953,7 @@
     (c-lambda (sdl::texture-ptr) int
         "SDL_GL_UnbindTexture"))
 
-(define sdl::rwfrom-file
+(define sdl::rw-from-file
     (c-lambda (char-string char-string) sdl::rw-ops-ptr
         "SDL_RWFromFile"))
 
@@ -1273,7 +1273,7 @@
     (c-lambda (int) int
         "SDL_SetThreadPriority"))
 
-(define sdl::tlscreate
+(define sdl::tls-create
     (c-lambda () SDL_TLSID
         "SDL_TLSCreate"))
 

@@ -314,11 +314,12 @@ def process(file)
         end
 
         gambit_name = name.gsub(/^SDL_/, '')
-                          .gsub('RGBSurface', 'RGB_Surface')
+                          .gsub(/([A-Z]{2,}?)([A-Z][a-z])/, '\\1_\\2')
                           .gsub(/_/, '-')
                           .gsub(/([^A-Z])([A-Z])/, '\\1-\\2')
                           .gsub(/-+/, '-')
                           .downcase
+                          .gsub(/sdl-net/, 'net')
 
         gambit_name = 'sdl::' + gambit_name
 

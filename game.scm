@@ -12,7 +12,14 @@
 									   (bitwise-ior
 									     sdl::renderer-accelerated
 									     sdl::renderer-presentvsync)))
-									   
-(print "hello world\n")
-(print renderer)
+
+(define fd (sdl::rwfrom-file "cone.png" "r"))	   
+(define img (sdl::img-load-png-rw fd))
+
+(define tex (sdl::create-texture-from-surface renderer img))
+
+(sdl::render-clear renderer)
+;(sdl::render-clear renderer)
+(sdl::render-present renderer)
+
 (sdl::delay 1000)
