@@ -8,7 +8,6 @@
 (include "sdl2/sdl.scm")
 (include "sdl2/video.scm")
 (include "sdl2/render.scm")
-(include "sdl2/timer.scm")
 ;(include "sdl2/image.scm")
 
 ; Functions

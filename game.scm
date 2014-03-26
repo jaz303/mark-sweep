@@ -13,7 +13,7 @@
 									     sdl::renderer-accelerated
 									     sdl::renderer-presentvsync)))
 
-(define fd (sdl::rwfrom-file "cone.png" "r"))	   
+(define fd (sdl::rw-from-file "cone.png" "r"))	   
 (define img (sdl::img-load-png-rw fd))
 
 (define tex (sdl::create-texture-from-surface renderer img))
@@ -21,5 +21,8 @@
 (sdl::render-clear renderer)
 ;(sdl::render-clear renderer)
 (sdl::render-present renderer)
+
+(print img "\n")
+(print tex "\n")
 
 (sdl::delay 1000)
