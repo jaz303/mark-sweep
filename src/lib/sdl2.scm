@@ -4,6 +4,9 @@
 ; Types
 (include "sdl2/types.scm")
 
+; Structs
+(include "sdl2/structs.scm")
+
 ; Routines
 (include "sdl2/sdl.scm")
 (include "sdl2/video.scm")
